@@ -3,10 +3,12 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-const Navbar = () => {
-  const user = undefined;
-  const isAdmin = undefined;
+const Navbar = async () => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+  const isAdmin = user?.email === process.env.ADMIN_EMAIL ? true : false;
 
   return (
     <div className="sticky z-[100] h-14  inset-x-0 top-0 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
@@ -23,6 +25,7 @@ const Navbar = () => {
                   className={buttonVariants({
                     size: "sm",
                     variant: "ghost",
+                    className: " hover:bg-green-500 hover:text-white",
                   })}
                 >
                   Logout
@@ -33,6 +36,7 @@ const Navbar = () => {
                     className={buttonVariants({
                       size: "sm",
                       variant: "ghost",
+                      className: " hover:bg-green-500 hover:text-white",
                     })}
                   >
                     Dashboard 🤠
@@ -42,7 +46,7 @@ const Navbar = () => {
                   href="/configure/upload"
                   className={buttonVariants({
                     size: "sm",
-                    className: "hidden sm:flex items-center gap-1",
+                    className: "hidden sm:flex items-center gap-1 ",
                   })}
                 >
                   Create Case
