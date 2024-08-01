@@ -1,5 +1,7 @@
+import { Icons } from "@/components/icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Phone } from "@/components/Phone";
+import { Reviews } from "@/components/Reviews";
 import { Check, Star } from "lucide-react";
 
 export default function Home() {
@@ -101,6 +103,103 @@ export default function Home() {
             </div>
           </div>
         </MaxWidthWrapper>
+      </section>
+
+      {/* service we provide section */}
+      <section className="bg-slate-100 grainy-dark py-24">
+        <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32 ">
+          <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
+            <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+              What our
+              <span className=" relative px-2">
+                customer
+                <Icons.underline className="hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-green-500" />
+              </span>
+              say's
+            </h2>
+            <img src="/snake-2.png" className="w-24 order-0  lg:order-2" />
+          </div>
+
+          <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:max-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
+            {/* First User Review */}
+            <div className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20">
+              <div className="flex gap-0.5 mb-2">
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+              </div>
+              <div className="text-lg leading-8">
+                <p>
+                  "This case feels incredibly durable, and I've received so many
+                  compliments on the design! I've had it for over two months
+                  now, and
+                  <span className="p-0.5 bg-slate-800 text-white ml-1 mr-1">
+                    the image is still crystal clear.
+                  </span>
+                  My previous case started to yellow after just a few weeks.
+                  WOW!"
+                </p>
+              </div>
+              <div className="flex gap-4 mt-2">
+                <img
+                  className="rounded-full h-12 w-12 object-cover"
+                  src="/users/user-1.png"
+                  alt="User 1"
+                />
+                <div className="flex flex-col">
+                  <p className="font-semibold">John Doe</p>
+                  <div className="flex gap-1.5 items-center text-zinc-600">
+                    <Check className="h-5 w-5 stroke-[3px] text-green-600" />
+                    <p className="text-sm">Verified Purchase</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Second User Review */}
+            <div className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20">
+              <div className="flex gap-0.5 mb-2">
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+                <Star className="h-5 w-5 text-green-600 fill-green-500" />
+              </div>
+              <div className="text-lg leading-8">
+                <p>
+                  "This case feels incredibly durable, and I've received so many
+                  compliments on the design! I've had it for over two months
+                  now, and
+                  <span className="p-0.5 bg-slate-800 text-white ml-1 mr-1">
+                    the image is still crystal clear.
+                  </span>
+                  My previous case started to yellow after just a few weeks.
+                  WOW!"
+                </p>
+              </div>
+              <div className="flex gap-4 mt-2">
+                <img
+                  className="rounded-full h-12 w-12 object-cover"
+                  src="/users/user-2.png"
+                  alt="User 2"
+                />
+                <div className="flex flex-col">
+                  <p className="font-semibold">John QT</p>
+                  <div className="flex gap-1.5 items-center text-zinc-600">
+                    <Check className="h-5 w-5 stroke-[3px] text-green-600" />
+                    <p className="text-sm">Verified Purchase</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </MaxWidthWrapper>
+
+        <div className="pt-16">
+          <Reviews />
+        </div>
       </section>
     </div>
   );
